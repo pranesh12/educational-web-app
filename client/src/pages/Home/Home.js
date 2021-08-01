@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getEducationalData } from "../../actions/education";
+import Banner from "../Banner/Banner";
 import Computer from "../Computer/Computer";
 import Language from "../Language/Language";
 import Praogramming from "../Programming/Praogramming";
@@ -11,14 +12,12 @@ const Home = () => {
     dispatch(getEducationalData());
   }, [dispatch]);
 
-  const educationDataState = useSelector((state) => state.eudcationReducer);
-  const { fetchDAta } = educationDataState;
-
   return (
     <div>
-      <Computer fetchDAta={fetchDAta} />
-      <Language fetchDAta={fetchDAta} />
-      <Praogramming fetchDAta={fetchDAta} />
+      <Banner />
+      <Computer />
+      <Language />
+      <Praogramming />
     </div>
   );
 };

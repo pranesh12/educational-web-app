@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Cards from "../../components/Cards/Cards";
 
-const Computer = ({ fetchDAta }) => {
+const Computer = () => {
+  const educationDataState = useSelector((state) => state.eudcationReducer);
+  const { fetchDAta } = educationDataState;
   const computerData = fetchDAta?.filter((data) => data.type === "computer");
   return (
     <div>
