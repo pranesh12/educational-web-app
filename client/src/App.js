@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Details from "./components/Details/Details";
-import Footer from "./components/Footer/Footer";
+
 import Navbar from "./components/Navbar/Navbar";
+import Allcourse from "./pages/Courses/Allcourse";
 import Home from "./pages/Home/Home";
 
 const App = () => {
@@ -11,6 +12,9 @@ const App = () => {
         <Router>
           <Navbar />
           <Switch>
+            <Route path="/courses">
+              <Allcourse />
+            </Route>
             <Route path="/:name/:id">
               <Details />
             </Route>
@@ -18,7 +22,6 @@ const App = () => {
               <Home />
             </Route>
           </Switch>
-          <Footer />
         </Router>
       </div>
     </>

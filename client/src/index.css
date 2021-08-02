@@ -3,4 +3,9 @@
   --white: #ffffff;
   --black: #000000;
   --navy: #bcddff;
+  --yellow: #e85d04;
+}
+
+body {
+  font-family: "Inconsolata";
 }

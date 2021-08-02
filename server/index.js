@@ -3,12 +3,14 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const InfoRouter = require("./routes/education");
+const TeacherRouter = require("./routes/teachersRoute");
 
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use("/", InfoRouter);
+app.use("/", TeacherRouter);
 
 mongoose.connect("mongodb://localhost:27017/education", {
   useNewUrlParser: true,

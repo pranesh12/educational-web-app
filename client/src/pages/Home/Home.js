@@ -1,23 +1,25 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getEducationalData } from "../../actions/education";
-import Banner from "../Banner/Banner";
-import Computer from "../Computer/Computer";
-import Language from "../Language/Language";
-import Praogramming from "../Programming/Praogramming";
-
+import { useDispatch } from "react-redux";
+import { getEducationalData, getTeachers } from "../../actions/education";
+import About from "../../components/About/About";
+import Banner from "../../components/Banner/Banner";
+import BestTeachers from "../../components/BestTeachers/BestTeachers";
+import Footer from "../../components/Footer/Footer";
+import Information from "../../components/Information/Infromation";
 const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getEducationalData());
+    dispatch(getTeachers());
   }, [dispatch]);
 
   return (
     <div>
       <Banner />
-      <Computer />
-      <Language />
-      <Praogramming />
+      <About />
+      <BestTeachers />
+      <Information />
+      <Footer />
     </div>
   );
 };

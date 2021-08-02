@@ -1,10 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
-import { eudcationReducer } from "./reducers/educationReducer";
+import { eudcationReducer, teachersReducer } from "./reducers/education";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 const finalReducers = combineReducers({
   eudcationReducer: eudcationReducer,
+  teachersReducer: teachersReducer,
 });
 
 const initialReducer = {};

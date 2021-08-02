@@ -1,6 +1,6 @@
 .banner {
   background-color: var(--navy);
-  height: 90vh;
+  height: 95vh;
 }
 
 .banner_left {
@@ -8,7 +8,7 @@
 }
 
 .banner_left > div {
-  margin: 2rem;
+  margin-top: 2rem;
 }
 .banner_left p {
   font-size: 20px;
