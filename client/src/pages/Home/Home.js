@@ -6,6 +6,7 @@ import Banner from "../../components/Banner/Banner";
 import BestTeachers from "../../components/BestTeachers/BestTeachers";
 import Footer from "../../components/Footer/Footer";
 import Information from "../../components/Information/Infromation";
+import ImportTantCourse from "../Courses/ImportTantCourse";
 const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,6 +18,7 @@ const Home = () => {
     <div>
       <Banner />
       <About />
+      <ImportTantCourse />
       <BestTeachers />
       <Information />
       <Footer />

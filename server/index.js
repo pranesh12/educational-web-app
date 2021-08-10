@@ -21,6 +21,6 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
   app.listen(5000, () => {
-    console.log("app is runnin on ports 5000");
+    console.log("app is running on ports 5000");
   });
 });

@@ -45,7 +45,7 @@ const Navbar = () => {
             </ul>
             <ul className="navbar-nav ">
               <li className="nav-item">
-                <Link className="nav-link" to="/instructor">
+                <Link className="nav-link" to="/auth">
                   Login/registration
                 </Link>
               </li>
