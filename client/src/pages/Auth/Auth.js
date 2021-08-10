@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { loginUser, registerUser } from "../../actions/userAction";
 import "./auth.css";
+import { useDispatch } from "react-redux";
 
 const Auth = () => {
+  const dispatch = useDispatch();
   const [islogin, setIslogin] = useState(false);
   const [register, setRegister] = useState({
     name: "",
@@ -17,6 +20,11 @@ const Auth = () => {
     e.preventDefault();
     console.log(register);
     console.log(login);
+    if (islogin) {
+      dispatch(loginUser(login));
+    } else {
+      dispatch(registerUser(register));
+    }
   };
   const handleOnChange = (e) => {
     islogin
@@ -106,7 +114,9 @@ const Auth = () => {
           </>
         )}
 
-        <button type="submit">Submit</button>
+        <button className="mb-2 mt-1 btn" type="submit">
+          Submit
+        </button>
       </form>
       {islogin ? (
         <p className="toogleAuth" onClick={() => setIslogin(false)}>

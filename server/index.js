@@ -4,6 +4,7 @@ const cors = require("cors");
 const app = express();
 const InfoRouter = require("./routes/education");
 const TeacherRouter = require("./routes/teachersRoute");
+const userRouter = require("./routes/user");
 
 app.use(express.json());
 app.use(cors());
@@ -11,7 +12,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use("/", InfoRouter);
 app.use("/", TeacherRouter);
-
+app.use("/", userRouter);
 mongoose.connect("mongodb://localhost:27017/education", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
