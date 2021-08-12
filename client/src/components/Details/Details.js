@@ -7,17 +7,24 @@ const Details = () => {
   const fetchDataState = useSelector((state) => state.eudcationReducer.fetchDAta);
   const filterDetails = fetchDataState?.filter((data) => data._id === id);
 
-  console.log(filterDetails);
-
   return (
     <div>
       {filterDetails?.map((filterData) => {
         return (
           <>
-            <img src={filterData.data[0].image} alt={filterData.data[0].header} />
+            <h1 className="text-center pt-2 pb-5">{filterData.data[0].header}</h1>
+            <div className="d-flex justify-content-center mb-5">
+              <iframe
+                width="560"
+                height="315"
+                src={filterData.data[0].vedio}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
 
-            <h1>{filterData.data[0].header}</h1>
-            <iframe src={filterData.data[0].vedio} frameborder="0"></iframe>
             <p>{filterData.data[0].article}</p>
           </>
         );

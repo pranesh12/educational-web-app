@@ -9,8 +9,14 @@ const finalReducers = combineReducers({
   teachersReducer: teachersReducer,
   userReducer: userReducer,
 });
-
-const initialReducer = {};
+const currentUser = localStorage.getItem("currentUser")
+  ? JSON.parse(localStorage.getItem("currentUser"))
+  : [];
+const initialReducer = {
+  userReducer: {
+    currentUser: currentUser,
+  },
+};
 const composeEnhancers = composeWithDevTools({});
 
 const store = createStore(

@@ -1,16 +1,18 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Details from "./components/Details/Details";
-
 import Navbar from "./components/Navbar/Navbar";
+import Admin from "./pages/Admin/Admin.jsx";
+
 import Auth from "./pages/Auth/Auth";
 import Allcourse from "./pages/Courses/Allcourse";
 import Home from "./pages/Home/Home";
+import NotFound from "./pages/NotFound/NotFound";
 
-const App = () => {
+function App() {
   return (
     <>
-      <div className="App">
-        <Router>
+      <Router>
+        <Route path={["/courses", "/auth", "/cart", "/:name/:id", "/"]}>
           <Navbar />
           <Switch>
             <Route path="/auth">
@@ -22,14 +24,27 @@ const App = () => {
             <Route path="/:name/:id">
               <Details />
             </Route>
-            <Route exact path="/">
+            <Route path="/" exact>
               <Home />
             </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
           </Switch>
-        </Router>
-      </div>
+        </Route>
+      </Router>
+
+      <Router>
+        <Route path={["/admin"]}>
+          <Switch>
+            <Route exact path="/admin">
+              <Admin />
+            </Route>
+          </Switch>
+        </Route>
+      </Router>
     </>
   );
-};
+}
 
 export default App;

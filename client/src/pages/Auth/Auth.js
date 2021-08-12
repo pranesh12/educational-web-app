@@ -18,8 +18,6 @@ const Auth = () => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(register);
-    console.log(login);
     if (islogin) {
       dispatch(loginUser(login));
     } else {

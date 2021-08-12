@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getEducationalData } from "../../actions/education";
-import Computer from "../Computer/Computer";
-import Language from "../Language/Language";
-import Praogramming from "../Programming/Praogramming";
+import Computer from "../../components/CoursesSection/Computer/Computer";
+import Language from "../../components/CoursesSection/Language/Language";
+import Praogramming from "../../components/CoursesSection/Programming/Praogramming";
 
 const Allcourse = () => {
   const dispatch = useDispatch();

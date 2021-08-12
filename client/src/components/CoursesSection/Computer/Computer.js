@@ -1,20 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Cards from "../../components/Cards/Cards";
+import Cards from "../../Cards/Cards";
 
-const Language = () => {
+const Computer = () => {
   const educationDataState = useSelector((state) => state.eudcationReducer);
   const { fetchDAta } = educationDataState;
-
-  const languateData = fetchDAta?.filter((data) => data.type === "language");
+  const computerData = fetchDAta?.filter((data) => data.type === "computer");
   return (
     <div>
-      <h2>Languages</h2>
+      <h2>Computer Section</h2>
       <div className="row">
-        <Cards filterData={languateData} />
+        <Cards filterData={computerData} />
       </div>
     </div>
   );
 };
 
-export default Language;
+export default Computer;
