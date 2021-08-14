@@ -4,6 +4,7 @@ import { getEducationalData } from "../../actions/education";
 import Computer from "../../components/CoursesSection/Computer/Computer";
 import Language from "../../components/CoursesSection/Language/Language";
 import Praogramming from "../../components/CoursesSection/Programming/Praogramming";
+import Navbar from "../../components/Navbar/Navbar";
 
 const Allcourse = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const Allcourse = () => {
   }, [dispatch]);
   return (
     <>
+      <Navbar />
       <div className="container mt-5 mb-5">
         <Computer />
         <Language />
