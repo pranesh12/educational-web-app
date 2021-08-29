@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const infoSchama = new Schema(
+const courseSchema = new Schema(
   {
     type: {
       type: String,
@@ -15,14 +15,11 @@ const infoSchama = new Schema(
       type: String,
       require,
     },
-    data: {
-      type: [],
-      require,
-    },
+    data: {},
   },
   { timestamps: true }
 );
 
-const infoModel = mongoose.model("infos", infoSchama);
+const courseModel = mongoose.model("courses", courseSchema);
 
-module.exports = infoModel;
+module.exports = courseModel;
