@@ -8,10 +8,13 @@ import {
   Add_EDUCATION_DATA,
   Add_EDUCATION_DATA_SUCCESS,
   Add_EDUCATION_DATA_FAILED,
+  DELETE_EDUCATION_DATA,
+  DELETE_EDUCATION_DATA_FAILED,
+  DELETE_EDUCATION_DATA_SUCCESS,
 } from "../actionType/actionType";
-
 import { url } from "../api/api";
 import axios from "axios";
+
 export const getEducationalData = () => async (dispatch) => {
   dispatch({ type: FETCH_EDUCATIONAL_DATA });
   try {
@@ -41,5 +44,15 @@ export const addEducationData = (data) => async (dispatch) => {
     dispatch({ type: Add_EDUCATION_DATA_SUCCESS, payload: res.data });
   } catch (error) {
     dispatch({ type: Add_EDUCATION_DATA_FAILED, payload: error });
+  }
+};
+
+export const deleteEducationData = (id) => async (dispatch) => {
+  dispatch({ type: DELETE_EDUCATION_DATA });
+  try {
+    const res = await axios.delete(url + `removecourse?id=${id}`);
+    dispatch({ type: DELETE_EDUCATION_DATA_SUCCESS, payload: res.data });
+  } catch (error) {
+    dispatch({ type: DELETE_EDUCATION_DATA_FAILED, payload: error });
   }
 };

@@ -1,3 +1,4 @@
+const { deleteOne } = require("../models/education");
 const courseModel = require("../models/education");
 
 const getAllInfo = async (req, res) => {
@@ -29,7 +30,19 @@ const addCourses = async (req, res) => {
   }
 };
 
+const removeCourse = async (req, res) => {
+  try {
+    const { id } = req.query;
+    console.log(id);
+    await courseModel.deleteOne({ _id: id });
+    res.json("Data removded");
+  } catch (error) {
+    res.json(error);
+  }
+};
+
 module.exports = {
   getAllInfo: getAllInfo,
   addCourses: addCourses,
+  removeCourse: removeCourse,
 };

@@ -38,10 +38,10 @@
   cursor: pointer;
 }
 .deleteIcon {
-  color: var(--primarygreen);
+  color: var(--primaryred);
 }
 .editIcon {
-  color: var(--primaryred);
+  color: var(--primarygreen);
 }
 
 .submit_button {

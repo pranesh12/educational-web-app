@@ -92,16 +92,7 @@ const AddCourses = () => {
                 value={educationData.header}
               />
             </div>
-            <div class="mb-3">
-              <input
-                className="form-control"
-                type="text"
-                name="article"
-                placeholder="Article"
-                onChange={handleChange}
-                value={educationData.article}
-              />
-            </div>
+
             <div class="mb-3">
               <input
                 className="form-control"
@@ -110,6 +101,16 @@ const AddCourses = () => {
                 placeholder="Vedio"
                 value={educationData.vedio}
                 onChange={handleChange}
+              />
+            </div>
+            <div class="mb-3">
+              <textarea
+                style={{ height: "30vh" }}
+                className="form-control"
+                name="article"
+                placeholder="Article"
+                onChange={handleChange}
+                value={educationData.article}
               />
             </div>
             <button className="btn submit_button">Submit</button>

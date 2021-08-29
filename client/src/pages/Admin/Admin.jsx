@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch, useSelector } from "react-redux";
-import { getEducationalData } from "../../actions/education";
+import { deleteEducationData, getEducationalData } from "../../actions/education";
+
 const Admin = () => {
   const dispatch = useDispatch();
   const educationalData = useSelector((state) => state.eudcationReducer.fetchDAta);
+
   useEffect(() => {
     dispatch(getEducationalData());
   }, [dispatch]);
 
   const deleteData = (id) => {
-    console.log(id);
+    dispatch(deleteEducationData(id));
   };
   const editData = (id) => {
     console.log(id);

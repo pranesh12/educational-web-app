@@ -8,6 +8,9 @@ import {
   Add_EDUCATION_DATA,
   Add_EDUCATION_DATA_FAILED,
   Add_EDUCATION_DATA_SUCCESS,
+  DELETE_EDUCATION_DATA,
+  DELETE_EDUCATION_DATA_SUCCESS,
+  DELETE_EDUCATION_DATA_FAILED,
 } from "../actionType/actionType";
 
 export const eudcationReducer = (state = {}, action) => {
@@ -29,16 +32,34 @@ export const eudcationReducer = (state = {}, action) => {
     case Add_EDUCATION_DATA:
       return {
         ...state,
+        loading: true,
       };
     case Add_EDUCATION_DATA_SUCCESS:
       return {
         ...state,
-        addEducationData: true,
+        loading: false,
       };
     case Add_EDUCATION_DATA_FAILED:
       return {
         ...state,
         error: action.payload,
+        loading: false,
+      };
+    case DELETE_EDUCATION_DATA:
+      return {
+        ...state,
+        loading: true,
+      };
+    case DELETE_EDUCATION_DATA_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+      };
+    case DELETE_EDUCATION_DATA_FAILED:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
       };
     default:
       return {
