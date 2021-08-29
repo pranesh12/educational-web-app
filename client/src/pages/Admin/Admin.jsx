@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteEducationData, getEducationalData } from "../../actions/education";
+import { Link } from "react-router-dom";
 
 const Admin = () => {
   const dispatch = useDispatch();
@@ -14,9 +15,7 @@ const Admin = () => {
   const deleteData = (id) => {
     dispatch(deleteEducationData(id));
   };
-  const editData = (id) => {
-    console.log(id);
-  };
+
   return (
     <div className="row">
       <div className="d-flex align-items-stretch">
@@ -47,10 +46,9 @@ const Admin = () => {
                       <td>
                         <div className="d-flex justify-content-around">
                           <div>
-                            <i
-                              onClick={() => editData(ed._id)}
-                              className="far fa-edit editIcon"
-                            ></i>
+                            <Link to={`/admin/edit/${ed._id}`}>
+                              <i className="far fa-edit editIcon"></i>
+                            </Link>
                           </div>
                           <div>
                             <i

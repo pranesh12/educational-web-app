@@ -41,8 +41,19 @@ const removeCourse = async (req, res) => {
   }
 };
 
+const getCourse = async (req, res) => {
+  try {
+    const { id } = req.query;
+    const foundCourse = await courseModel.findOne({ _id: id });
+    res.json(foundCourse);
+  } catch (error) {
+    res.json(error);
+  }
+};
+
 module.exports = {
   getAllInfo: getAllInfo,
   addCourses: addCourses,
   removeCourse: removeCourse,
+  getCourse: getCourse,
 };

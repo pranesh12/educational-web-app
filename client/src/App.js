@@ -5,6 +5,7 @@ import AddCourses from "./pages/Admin/AddCourses";
 import AddTeacher from "./pages/Admin/AddTeacher";
 import Admin from "./pages/Admin/Admin.jsx";
 import Dashboard from "./pages/Admin/DashBoard/DashBoard";
+import UpdateCourse from "./pages/Admin/UpdateCourse";
 import Auth from "./pages/Auth/Auth";
 import Allcourse from "./pages/Courses/Allcourse";
 import Home from "./pages/Home/Home";
@@ -29,6 +30,7 @@ function App() {
             <Route exact path="/admin" component={Admin}></Route>
             <Route exact path="/admin/addcourse" component={AddCourses}></Route>
             <Route exact path="/admin/addteacher" component={AddTeacher}></Route>
+            <Route exact path="/admin/edit/:id" component={UpdateCourse}></Route>
           </Switch>
         </Route>
       </Router>

@@ -3,6 +3,7 @@ import { addEducationData } from "../../actions/education";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch } from "react-redux";
 import FileBase64 from "react-file-base64";
+
 const AddCourses = () => {
   const dispatch = useDispatch();
   const [educationData, setEducationData] = useState({

@@ -11,6 +11,9 @@ import {
   DELETE_EDUCATION_DATA,
   DELETE_EDUCATION_DATA_SUCCESS,
   DELETE_EDUCATION_DATA_FAILED,
+  FIND_DATA_BYID,
+  FIND_DATA_BYID_SUCCESS,
+  FIND_DATA_BYID_FAILED,
 } from "../actionType/actionType";
 
 export const eudcationReducer = (state = {}, action) => {
@@ -60,6 +63,20 @@ export const eudcationReducer = (state = {}, action) => {
         ...state,
         error: action.payload,
         loading: false,
+      };
+    case FIND_DATA_BYID:
+      return {
+        ...state,
+      };
+    case FIND_DATA_BYID_SUCCESS:
+      return {
+        ...state,
+        foundCourse: action.payload,
+      };
+    case FIND_DATA_BYID_FAILED:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return {

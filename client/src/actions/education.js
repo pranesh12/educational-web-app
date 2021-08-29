@@ -11,6 +11,9 @@ import {
   DELETE_EDUCATION_DATA,
   DELETE_EDUCATION_DATA_FAILED,
   DELETE_EDUCATION_DATA_SUCCESS,
+  FIND_DATA_BYID,
+  FIND_DATA_BYID_SUCCESS,
+  FIND_DATA_BYID_FAILED,
 } from "../actionType/actionType";
 import { url } from "../api/api";
 import axios from "axios";
@@ -54,5 +57,15 @@ export const deleteEducationData = (id) => async (dispatch) => {
     dispatch({ type: DELETE_EDUCATION_DATA_SUCCESS, payload: res.data });
   } catch (error) {
     dispatch({ type: DELETE_EDUCATION_DATA_FAILED, payload: error });
+  }
+};
+
+export const findDataByid = (id) => async (dispatch) => {
+  dispatch({ type: FIND_DATA_BYID });
+  try {
+    const res = await axios.get(url + `getCourse?id=${id}`);
+    dispatch({ type: FIND_DATA_BYID_SUCCESS, payload: res.data });
+  } catch (error) {
+    dispatch({ type: FIND_DATA_BYID_FAILED, payload: error });
   }
 };
