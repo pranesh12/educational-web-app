@@ -1,4 +1,3 @@
-const { deleteOne } = require("../models/education");
 const courseModel = require("../models/education");
 
 const getAllInfo = async (req, res) => {
@@ -51,9 +50,34 @@ const getCourse = async (req, res) => {
   }
 };
 
+const updateCourse = async (req, res) => {
+  const { id, newData } = req.body;
+  try {
+    const { type, subType, article, createdBy, header, vedio, img } = newData;
+
+    const newData = {
+      type,
+      subType,
+      createdBy,
+      data: {
+        image: img,
+        header,
+        article,
+        vedio,
+      },
+    };
+
+    await courseModel.findByIdAndUpdate(id, newData, { new: true });
+    res.status(200).json({ message: "update successfull" });
+  } catch (error) {
+    res.json(error);
+  }
+};
+
 module.exports = {
   getAllInfo: getAllInfo,
   addCourses: addCourses,
   removeCourse: removeCourse,
   getCourse: getCourse,
+  updateCourse: updateCourse,
 };

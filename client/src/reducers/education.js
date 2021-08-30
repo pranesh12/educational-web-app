@@ -14,6 +14,9 @@ import {
   FIND_DATA_BYID,
   FIND_DATA_BYID_SUCCESS,
   FIND_DATA_BYID_FAILED,
+  UPDATE_COURSE_DATA,
+  UPDATE_COURSE_DATA_SUCCESS,
+  UPDATE_COURSE_DATA_FAILED,
 } from "../actionType/actionType";
 
 export const eudcationReducer = (state = {}, action) => {
@@ -21,17 +24,55 @@ export const eudcationReducer = (state = {}, action) => {
     case FETCH_EDUCATIONAL_DATA:
       return {
         ...state,
+        loading: true,
       };
     case FETCH_EDUCATIONAL_DATA_SUCCESS:
       return {
         ...state,
+        loading: false,
         fetchDAta: action.payload,
       };
     case FETCH_EDUCATIONAL_DATA_FAILED:
       return {
         ...state,
+        loading: false,
         error: action.payload,
       };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+export const findcourseByIdReducer = (state = {}, action) => {
+  switch (action.type) {
+    case FIND_DATA_BYID:
+      return {
+        ...state,
+        loading: true,
+      };
+    case FIND_DATA_BYID_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        foundCourse: action.payload,
+      };
+    case FIND_DATA_BYID_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+export const AddcourseReducer = (state = {}, action) => {
+  switch (action.type) {
     case Add_EDUCATION_DATA:
       return {
         ...state,
@@ -48,6 +89,15 @@ export const eudcationReducer = (state = {}, action) => {
         error: action.payload,
         loading: false,
       };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+export const DeleteCourseReducer = (state = {}, action) => {
+  switch (action.type) {
     case DELETE_EDUCATION_DATA:
       return {
         ...state,
@@ -64,20 +114,30 @@ export const eudcationReducer = (state = {}, action) => {
         error: action.payload,
         loading: false,
       };
-    case FIND_DATA_BYID:
+    default:
       return {
         ...state,
       };
-    case FIND_DATA_BYID_SUCCESS:
+  }
+};
+
+export const courseUpdateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPDATE_COURSE_DATA:
       return {
         ...state,
-        foundCourse: action.payload,
       };
-    case FIND_DATA_BYID_FAILED:
+    case UPDATE_COURSE_DATA_SUCCESS:
+      return {
+        ...state,
+        message: action.payload,
+      };
+    case UPDATE_COURSE_DATA_FAILED: {
       return {
         ...state,
         error: action.payload,
       };
+    }
     default:
       return {
         ...state,
