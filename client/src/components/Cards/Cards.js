@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const Cards = ({ filterData }) => {
-  console.log(filterData);
   return (
     <>
       {filterData?.map((data) => {
@@ -9,7 +8,6 @@ const Cards = ({ filterData }) => {
           <div className="col-md-4">
             <div className="card" style={{ width: "18rem" }}>
               {<img src={data.data.image} className="card-img-top" alt="..." />}
-              {console.log(data.data)}
               <div className="card-body">
                 <h5 className="card-title">{data.subType}</h5>
                 <Link

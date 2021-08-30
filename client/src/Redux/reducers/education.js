@@ -17,7 +17,7 @@ import {
   UPDATE_COURSE_DATA,
   UPDATE_COURSE_DATA_SUCCESS,
   UPDATE_COURSE_DATA_FAILED,
-} from "../actionType/actionType";
+} from "../../actionType/actionType";
 
 export const eudcationReducer = (state = {}, action) => {
   switch (action.type) {

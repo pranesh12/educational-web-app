@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./Navbar.css";
-import { logoutUser } from "../../actions/userAction";
+import { logoutUser } from "../../Redux/actions/userAction";
 
 const Navbar = () => {
   const dispatch = useDispatch();

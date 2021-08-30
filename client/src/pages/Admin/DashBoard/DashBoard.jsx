@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./DashBoard.css";
+
 const Dashboard = () => {
   return (
     <nav className="sidebar">

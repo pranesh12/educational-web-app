@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { addEducationData } from "../../actions/education";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch } from "react-redux";
 import FileBase64 from "react-file-base64";
+import { addEducationData } from "../../Redux/actions/education";
 
 const AddCourses = () => {
   const dispatch = useDispatch();

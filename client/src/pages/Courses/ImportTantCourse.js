@@ -2,12 +2,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Cards from "../../components/Cards/Cards";
-
 import "./importTCourse.css";
+
 const ImportTantCourse = () => {
   const courseState = useSelector((state) => state.eudcationReducer.fetchDAta);
   const threeCourse = courseState?.slice(0, 3);
-  console.log(threeCourse);
   return (
     <div>
       <div className=" importantCourse container">

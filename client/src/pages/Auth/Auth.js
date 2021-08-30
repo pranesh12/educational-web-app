@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { loginUser, registerUser } from "../../actions/userAction";
 import "./auth.css";
 import { useDispatch } from "react-redux";
 import Navbar from "../../components/Navbar/Navbar";
+import { loginUser, registerUser } from "../../Redux/actions/userAction";
 
 const Auth = () => {
   const dispatch = useDispatch();

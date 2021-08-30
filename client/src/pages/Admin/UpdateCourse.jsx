@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch, useSelector } from "react-redux";
-import { findDataByid, updateCourse } from "../../actions/education";
 import FileBase64 from "react-file-base64";
+import { findDataByid, updateCourse } from "../../Redux/actions/education";
 
 const UpdateCourse = () => {
   const dispatch = useDispatch();
