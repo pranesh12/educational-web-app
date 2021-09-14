@@ -32,7 +32,6 @@ const addCourses = async (req, res) => {
 const removeCourse = async (req, res) => {
   try {
     const { id } = req.query;
-    console.log(id);
     await courseModel.deleteOne({ _id: id });
     res.json("Data removded");
   } catch (error) {

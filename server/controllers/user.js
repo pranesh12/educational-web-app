@@ -40,7 +40,28 @@ const login = async (req, res) => {
   }
 };
 
+const userList = async (req, res) => {
+  try {
+    const foundedUserlist = await userModel.find({}).select("email name");
+    res.status(200).send(foundedUserlist);
+  } catch (error) {
+    res.status(404).send(error);
+  }
+};
+
+const deleteUserAccount = async (req, res) => {
+  try {
+    const { id } = req.query;
+    await userModel.findOneAndDelete({ _id: id });
+    res.status(200).send({ message: "Account succesfully Deleted" });
+  } catch (error) {
+    res.status(200).send(error);
+  }
+};
+
 module.exports = {
   register: register,
   login: login,
+  userList: userList,
+  deleteUserAccount: deleteUserAccount,
 };

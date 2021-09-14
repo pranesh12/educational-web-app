@@ -18,7 +18,7 @@ const Dashboard = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="#">
+          <NavLink to="/admin/userlist">
             <span className="fa fa-user mr-3"></span> User List
           </NavLink>
         </li>

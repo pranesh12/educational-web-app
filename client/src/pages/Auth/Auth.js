@@ -3,10 +3,13 @@ import "./auth.css";
 import { useDispatch } from "react-redux";
 import Navbar from "../../components/Navbar/Navbar";
 import { loginUser, registerUser } from "../../Redux/actions/userAction";
+import { LoginValidation, RegisterValidation } from "./Validation";
 
 const Auth = () => {
   const dispatch = useDispatch();
-  const [islogin, setIslogin] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [registerErrors, setRegisterErrors] = useState({});
+  const [islogin, setIslogin] = useState(true);
   const [register, setRegister] = useState({
     name: "",
     email: "",
@@ -20,9 +23,18 @@ const Auth = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (islogin) {
-      dispatch(loginUser(login));
+      setErrors(LoginValidation(login));
+      if (Object.keys(errors).length === 0 && errors.constructor === Object) {
+        dispatch(loginUser(login));
+      }
     } else {
-      dispatch(registerUser(register));
+      setRegisterErrors(RegisterValidation(register));
+      if (
+        Object.keys(registerErrors).length === 0 &&
+        registerErrors.constructor === Object
+      ) {
+        dispatch(registerUser(register));
+      }
     }
   };
   const handleOnChange = (e) => {
@@ -52,9 +64,9 @@ const Auth = () => {
                   name="email"
                   placeholder="Email"
                   onChange={handleOnChange}
-                  required
                 />
               </div>
+              {errors.email && <p className="text-danger">{errors.email}</p>}
               <div class="mb-3">
                 <input
                   type="password"
@@ -63,9 +75,9 @@ const Auth = () => {
                   name="password"
                   placeholder="Password"
                   onChange={handleOnChange}
-                  required
                 />
               </div>
+              {errors.password && <p className="text-danger">{errors.password}</p>}
             </>
           ) : (
             <>
@@ -77,9 +89,11 @@ const Auth = () => {
                   name="email"
                   placeholder="Email"
                   onChange={handleOnChange}
-                  required
                 />
               </div>
+              {registerErrors.email && (
+                <p className="text-danger">{registerErrors.email}</p>
+              )}
               <div className="mb-3">
                 <input
                   className="form-control"
@@ -87,9 +101,11 @@ const Auth = () => {
                   name="name"
                   placeholder="Name"
                   onChange={handleOnChange}
-                  required
                 />
               </div>
+              {registerErrors.name && (
+                <p className="text-danger">{registerErrors.name}</p>
+              )}
               <div className="mb-3">
                 <input
                   type="password"
@@ -98,9 +114,11 @@ const Auth = () => {
                   name="password"
                   placeholder="Password"
                   onChange={handleOnChange}
-                  required
                 />
               </div>
+              {registerErrors.password && (
+                <p className="text-danger">{registerErrors.password}</p>
+              )}
               <div className="mb-3">
                 <input
                   type="password"
@@ -109,9 +127,11 @@ const Auth = () => {
                   name="confirmPassword"
                   placeholder="Confirm Password"
                   onChange={handleOnChange}
-                  required
                 />
               </div>
+              {registerErrors.confirmPassword && (
+                <p className="text-danger">{registerErrors.confirmPassword}</p>
+              )}
             </>
           )}
 

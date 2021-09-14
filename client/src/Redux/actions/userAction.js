@@ -6,6 +6,12 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAILED,
   LOGIN_USER_FAILED,
+  GET_USER,
+  GET_USER_DATA_FAILED,
+  GET_USER_SUCCESS,
+  DELETE_USER_ACCOUNT,
+  DELETE_EDUCATION_DATA_FAILED,
+  DELETE_EDUCATION_DATA_SUCCESS,
 } from "../../actionType/actionType";
 import { url } from "../../api/api";
 
@@ -13,9 +19,9 @@ export const registerUser = (registerData) => async (dispatch) => {
   dispatch({ type: REGISTER_USER });
   try {
     const res = await axios.post(url + `register`, registerData);
-    console.log(res.data);
     dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data });
     localStorage.setItem("currentUser", JSON.stringify(res.data));
+    window.location = "/";
   } catch (error) {
     dispatch({ type: REGISTER_USER_FAILED, payload: error });
   }
@@ -25,11 +31,31 @@ export const loginUser = (logindata) => async (dispatch) => {
   dispatch({ type: LOGIN_USER });
   try {
     const res = await axios.post(url + `login`, logindata);
-    console.log(res.data);
     dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data });
     localStorage.setItem("currentUser", JSON.stringify(res.data));
+    window.location = "/";
   } catch (error) {
     dispatch({ type: LOGIN_USER_FAILED, payload: error });
+  }
+};
+
+export const getAllUserData = () => async (dispatch) => {
+  dispatch({ type: GET_USER });
+  try {
+    const res = await axios.get(url + `userList`);
+    dispatch({ type: GET_USER_SUCCESS, payload: res.data });
+  } catch (error) {
+    dispatch({ type: GET_USER_DATA_FAILED, payload: error });
+  }
+};
+
+export const removeUserAccount = (id) => async (dispatch) => {
+  dispatch({ type: DELETE_USER_ACCOUNT });
+  try {
+    const res = await axios.delete(url + `removeAccount?id=${id}`);
+    dispatch({ type: DELETE_EDUCATION_DATA_SUCCESS, payload: res.data });
+  } catch (error) {
+    dispatch({ type: DELETE_EDUCATION_DATA_FAILED, payload: error });
   }
 };
 

@@ -5,6 +5,12 @@ import {
   REGISTER_USER,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAILED,
+  GET_USER,
+  GET_USER_SUCCESS,
+  GET_USER_DATA_FAILED,
+  DELETE_USER_ACCOUNT,
+  DELETE_USER_ACCOUNT_SUCCESS,
+  DELETE_EDUCATION_DATA_FAILED,
 } from "../../actionType/actionType";
 
 export const userReducer = (state = {}, action) => {
@@ -42,6 +48,40 @@ export const userReducer = (state = {}, action) => {
         ...state,
         error: action.payload,
         registerLoading: false,
+      };
+    case GET_USER:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_USER_SUCCESS:
+      return {
+        ...state,
+        userList: action.payload,
+        loading: false,
+      };
+    case GET_USER_DATA_FAILED:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    case DELETE_USER_ACCOUNT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case DELETE_USER_ACCOUNT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        deletedDAta: action.payload,
+      };
+    case DELETE_EDUCATION_DATA_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
     default:
       return {
